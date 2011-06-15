@@ -1,0 +1,8 @@
+Stuff to do
+
+Open file - DONE
+read in as list - DONE
+sort
+output sorted file
+handle nonexistant file
+command line args
