@@ -1,0 +1,6 @@
+Random ints todo
+
+- generate list of 25 random ints between -100 and 100 - DONE
+- output to file
+- variable list size
+- variable bounds
