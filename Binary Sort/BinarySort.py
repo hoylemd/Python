@@ -1,5 +1,10 @@
+# Binary sort program
+# Takes in a filename and reads in a list of integers, applies
+# Merge Sort to them, and outputs them to stdout.  If a second 
+# filename is provided, it will also write the sorted list to 
+# that file.
+
 import sys
-import getopt
 
 # merge function
 def merge(left, right):
@@ -51,8 +56,19 @@ def mergeSort( list ):
 		merged = merge(left, right)
 		return merged
 
-# set the file name
-filename = 	"data/numbers.txt"
+# parse arguments
+if len(sys.argv) < 2:
+	print "Please specify a file containing the list of numbers."
+	print "useage: BinarySort.py <filename> [output file]"
+	sys.exit(2)
+	
+# set the file names
+filename = 	sys.argv[1]
+
+if len(sys.argv) > 2:
+	outfile = sys.argv[2]
+else:
+	outfile = ""
 
 # get the data
 try:
@@ -70,17 +86,20 @@ for x in list:
 	numbers.append(int(x))
 
 # Print out the initial list	
-print "numbers:"
+print "provided list:"
 print numbers
+print "\n"
 
 # merge sort the list
 sorted = mergeSort(numbers)
 
 # Merge Sort	
-print "sorted:"
+print "sorted list:"
 print sorted
 
 # write the results to a file
-file = open("results.txt", "w")
-for x in sorted:
-	file.write(str(x) + "\n")
+if outfile != "":
+	file = open(outfile, "w")
+	for x in sorted:
+		file.write(str(x) + "\n")
+	file.close()
