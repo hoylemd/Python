@@ -12,6 +12,23 @@ def isNumeric(number):
 	except ValueError:
 		return False
 
+def generateInts(num_numbers, lower, upper):
+	# calculate the range
+	list_range = upper - lower
+
+	# seed the random number generator
+	random.seed()
+
+	#initialize the list
+	new_list = list()
+
+	# generate the random ints
+	for i in range(num_numbers):
+		newNumber = int(math.floor((random.random() * list_range) + lower))
+		new_list.append(newNumber)
+		
+	return new_list
+	
 # load default settings
 list_length = 25
 lower_bound = -100
@@ -45,19 +62,8 @@ while current_arg < arg_count:
 		print "Invalid argument flag \"" + arg_flag + "\" specified"
 	
 	current_arg += 2
-	
-list_range = upper_bound - lower_bound
 
-# seed the random number generator
-random.seed()
-
-#initialize the list
-random_list = list()
-
-# generate the random ints
-for i in range(list_length):
-	newNumber = int(math.floor((random.random() * list_range) + lower_bound))
-	random_list.append(newNumber)
+random_list = generateInts(list_length, lower_bound, upper_bound)
 	
 # write the list to the file
 if filename != "":
