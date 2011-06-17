@@ -1,6 +1,11 @@
 Random ints todo
 
 - generate list of 25 random ints between -100 and 100 - DONE
-- output to file
-- variable list size
-- variable bounds
+- output to file - DONE
+- variable list size - DONE
+- variable bounds - DONE
+- improve command line arguments - DONE
+ - -m <number> minimum
+ - -M <number> maximum
+ - -l <number> list length
+ - -o <filename> output file

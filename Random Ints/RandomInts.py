@@ -1,45 +1,51 @@
 # Random integer generation program
-# generates a list of 25 integers between -100 and 100
+# generates a list of integers between specified boundaries
 
 import random
 import math
 import sys
 
+def isNumeric(number):
+	try:
+		float(number)
+		return True
+	except ValueError:
+		return False
+
 # load default settings
 list_length = 25
 lower_bound = -100
 upper_bound = 100
+filename = ""
 
 # parse arguments
-argc = len(sys.argv)
-if argc > 1:
-	filename = sys.argv[1]
-else:
-	print "No output file provided. List will not be saved."
-	filename = ""
+arg_count = len(sys.argv)
+current_arg = 1
+while current_arg < arg_count:
+	arg_flag = sys.argv[current_arg]
+	arg_value = sys.argv[current_arg+1]
+	if arg_flag == "-o":
+		filename = arg_value
+	elif arg_flag == "-m":
+		if isNumeric(arg_value):
+			lower_bound = int(arg_value)
+		else:
+			print "Invalid lower bound \"" + arg_value + "\" specified"
+	elif arg_flag == "-M":
+		if isNumeric(arg_value):
+			upper_bound = int(arg_value)
+		else:
+			print "Invalid upper bound \"" + arg_value + "\" specified"
+	elif arg_flag == "-l":
+		if isNumeric(arg_value):
+			list_length = int(arg_value)
+		else:
+			print "Invalid list length \"" + arg_value + "\" specified"
+	else:
+		print "Invalid argument flag \"" + arg_flag + "\" specified"
 	
-if argc > 2:
-	if sys.argv[0].isdigit():
-		list_length = int(sys.argv[2])
-	else:
-		print "List length invalid, defaulting to 25"
-		
-if argc > 3:
-	if sys.argv[0].isdigit():
-		lower_bound = int(sys.argv[3])
-	else:
-		print "Lower bound invalid, defaulting to -100"
-		
-if argc > 4:
-	if sys.argv[0].isdigit():
-		upper_bound = int(sys.argv[3])
-	else:
-		print "Upper bound invalid, defaulting to 100"
-
-
-list_length = 25
-lower_bound = -100
-upper_bound = 100
+	current_arg += 2
+	
 list_range = upper_bound - lower_bound
 
 # seed the random number generator
@@ -49,7 +55,7 @@ random.seed()
 random_list = list()
 
 # generate the random ints
-for i in range(25):
+for i in range(list_length):
 	newNumber = int(math.floor((random.random() * list_range) + lower_bound))
 	random_list.append(newNumber)
 	
