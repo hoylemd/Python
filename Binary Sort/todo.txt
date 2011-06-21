@@ -6,3 +6,6 @@ sort - DONE
 output sorted file - DONE
 handle nonexistant file - DONE
 command line args - DONE
+handle non-number line in input file error - DONE
+ - ignore blank lines - DONE
+ - crash otherwise - DONE

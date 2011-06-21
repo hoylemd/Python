@@ -1,6 +1,6 @@
 Binary Search todo
 
-- Load in sorted list of numbers
 - Parse command-line arguments
+- Load in sorted list of numbers
 - Apply binary search
 - Report success & position or failure.

@@ -6,6 +6,14 @@
 
 import sys
 
+# numeric validation function
+def isNumeric(number):
+	try:
+		float(number)
+		return True
+	except ValueError:
+		return False
+		
 # merge function
 def merge(left, right):
 	# calculate the sizes
@@ -83,7 +91,12 @@ file.close()
 list = data.split("\n")
 numbers = []
 for x in list:
-	numbers.append(int(x))
+	if isNumeric(x):
+		numbers.append(int(x))
+	else:
+		if x != "\n":
+			print "Non-numeric entry in input file \"" + x + "\""
+			exit(3)
 
 # Print out the initial list	
 print "provided list:"
