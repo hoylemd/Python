@@ -15,8 +15,8 @@ while current_arg < arg_count:
 	if current_arg + 1 < arg_count:
 		
 		# get the argument components
-		arg_flag = sys.argv(current_arg)
-		arg_value = sys.arg(current_arg+1)
+		arg_flag = sys.argv[current_arg]
+		arg_value = sys.argv[current_arg+1]
 		
 		# parse input file
 		if arg_flag == "-i":
@@ -24,10 +24,12 @@ while current_arg < arg_count:
 	else:
 		print "Mismatched arguments. Use -<flag> <argument>"
 		exit(2)
+
+	current_arg += 2
 	
 # handle no arguments
 if(arg_count == 1):
 	print "No arguments specifed."
 	exit(1)
 	
-print "filename: " + filename + "target: " + str(target)
+print "filename: " + filename + " target: " + str(target)
