@@ -13,3 +13,12 @@ If any of these are left undefined, the defaults will be used.
 	-m -100
 	-M 100
 	-l 25
+	
+Error Codes:
+0 - No error, exited cleanly
+1 - Nonnumeric lower bound specified.
+2 - Nonnumeric upper bound specified.
+3 - Nonnumeric list length specified.
+4 - Invalid argument flag supplied. Argument flags are case-sensitive
+5 - Argument supplied without flag or flag supplied without argument.
+6 - Lower bound is greater than upper bound.

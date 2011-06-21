@@ -9,3 +9,5 @@ Random ints todo
  - -M <number> maximum
  - -l <number> list length
  - -o <filename> output file
+- fix no arguments crash - DONE
+- Make argument errors verbose and fatal - DONE
