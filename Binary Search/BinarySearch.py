@@ -19,6 +19,35 @@ def readFile(file_path):
 	data_file.close()
 	return data
 
+# Recursive function to implement Binary Search
+# returns the index of the first encountered instance of the given target
+# note: this is not neccesarily the first occurence in the list
+def BSearch(num_list, target):
+	# calculate markers
+	length = len(num_list)
+	radix = length / 2
+	middle = num_list[radix]
+	
+	# apply search
+	if middle == target:
+		return radix
+	else:
+		if length > 1:
+			# recusion for radix < target
+			if middle < target:
+				recursive_result =  BSearch(num_list[radix:], target)
+						
+				# apply radix offset
+				if recursive_result != None:
+					return recursive_result + radix
+				else:
+					return None
+			# recursion for radix > target
+			else:
+				return BSearch(num_list[:radix], target)
+		else:
+			return None
+	
 # initalize variables
 filename = None
 target = None
@@ -75,7 +104,7 @@ if target == None:
 data = readFile(filename)
 
 # handle file read error
-if data == None
+if data == None:
 	exit(7)
 
 # Make the list
@@ -85,6 +114,15 @@ for x in number_list:
 	if isNumeric(x):
 		numbers.append(int(x))
 	else:
-		if x != "\n":
+		if x != "\n" and x != "":
 			print "Non-numeric entry in input file \"" + x + "\""
 			exit(8)
+			
+# apply search
+target_index = BSearch(numbers, target)
+
+# report success/failure
+if target_index != None:
+	print "Instance of [" + str(target) + "] found at index " + str(target_index)
+else:
+	print "No instances of [" + str(target) + "] found."

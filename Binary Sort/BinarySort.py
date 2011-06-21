@@ -14,7 +14,7 @@ def isNumeric(number):
 	except ValueError:
 		return False
 		
-def readFile(file_path)
+def readFile(file_path):
 	try:
 		data_file = open(filename, 'r')
 	except IOError:
@@ -104,7 +104,7 @@ for x in list:
 	if isNumeric(x):
 		numbers.append(int(x))
 	else:
-		if x != "\n":
+		if x != "\n" and x != "":
 			print "Non-numeric entry in input file \"" + x + "\""
 			exit(3)
 
