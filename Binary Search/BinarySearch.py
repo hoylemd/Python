@@ -9,7 +9,15 @@ def isNumeric(number):
 	except ValueError:
 		return False
 
-
+def readFile(file_path):
+	try:
+		data_file = open(filename, 'r')
+	except IOError:
+		print "No such file \"" + file_path + "\""
+		return None
+	data = data_file.read()
+	data_file.close()
+	return data
 
 # initalize variables
 filename = None
@@ -62,3 +70,21 @@ if filename == None:
 if target == None:
 	print "No target specified to search for."
 	exit(6)
+	
+# load in the file
+data = readFile(filename)
+
+# handle file read error
+if data == None
+	exit(7)
+
+# Make the list
+number_list = data.split("\n")
+numbers = []
+for x in number_list:
+	if isNumeric(x):
+		numbers.append(int(x))
+	else:
+		if x != "\n":
+			print "Non-numeric entry in input file \"" + x + "\""
+			exit(8)

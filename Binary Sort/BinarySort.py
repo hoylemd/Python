@@ -14,6 +14,16 @@ def isNumeric(number):
 	except ValueError:
 		return False
 		
+def readFile(file_path)
+	try:
+		data_file = open(filename, 'r')
+	except IOError:
+		print "No such file \"" + file_path + "\""
+		return None
+	data = data_file.read()
+	data_file.close()
+	return data
+	
 # merge function
 def merge(left, right):
 	# calculate the sizes

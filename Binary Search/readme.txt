@@ -14,3 +14,5 @@ Error codes:
 4 - Invalid argument flag
 5 - No file provided
 6 - No target provided
+7 - Invalid file path
+8 - Nonnumeric entry in file
