@@ -2,5 +2,6 @@ Binary Search todo
 
 - Parse command-line arguments - DONE
 - Load in sorted list of numbers - DONE
-- Apply binary search
-- Report success & position or failure.
+- Apply binary search - DONE
+- Report success & position or failure. - DONE
+- report number of hits & starting position. - DONE

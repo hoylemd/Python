@@ -5,6 +5,8 @@ BinarySearch.py <-f> <filename> <-t> <target value>
 
 The filename must be a valid path to a file containing a sorted list of integers.
 The target value must be an integer, but does not neccesarily have to exist in the given list.
+Success will be reported with the number of occurrances, and the index of the first one.
+failure will be reported simply.
 
 Error codes:
 0 - No error. Success

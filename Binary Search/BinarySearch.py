@@ -51,6 +51,7 @@ def BSearch(num_list, target):
 # initalize variables
 filename = None
 target = None
+useageString = "Useage: BinarySearch.py -f <filepath> -t <target number>"
 
 # parse arguments
 arg_count = len(sys.argv)
@@ -74,14 +75,17 @@ while current_arg < arg_count:
 				target = int(arg_value)
 			else:
 				print "Non-numeric target specified."
+				print useageString
 				exit(3)
 		
 		# handle invalid flag
 		else:
 			print "Invalid argument flag provided."
+			print useageString
 			exit(4)
 	else:
 		print "Mismatched arguments. Use -<flag> <argument>"
+		print useageString
 		exit(2)
 
 	# increment argument pointer
@@ -90,14 +94,17 @@ while current_arg < arg_count:
 # handle no arguments
 if(arg_count == 1):
 	print "No arguments specifed."
+	print useageString
 	exit(1)
 	
 # handle unspecified arguments
 if filename == None:
 	print "No file specified to search."
+	print useageString
 	exit(5)
 if target == None:
 	print "No target specified to search for."
+	print useageString
 	exit(6)
 	
 # load in the file
@@ -123,6 +130,20 @@ target_index = BSearch(numbers, target)
 
 # report success/failure
 if target_index != None:
-	print "Instance of [" + str(target) + "] found at index " + str(target_index)
+
+	# count backwards the number of hits
+	hits = 0
+	indexPointer = target_index
+	while int(number_list[indexPointer]) == target:
+		hits += 1
+		indexPointer -= 1
+	
+	# print out the results
+	print str(hits),
+	if hits == 1:
+		print "instance",
+	else:
+		print "instances",
+	print "of " + str(target) + " starting at index " + str(indexPointer+1)
 else:
-	print "No instances of [" + str(target) + "] found."
+	print "No instances of " + str(target) + " found."
