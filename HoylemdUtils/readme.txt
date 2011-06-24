@@ -35,3 +35,6 @@ RandomInts:
 		isNumeric(number): Returns true if <number> is a number, and false if it is not.
 	
 		generateInts(num_numbers, lower, upper): returns a list of <num_numbers> integers between <lower> and <upper> inclusive. If <num_numbers> is negative, or <lower> is greater than or equal to <upper>, a blank list will be returned.
+		
+Installation Instructions:
+	Copy the hutils folder to a directory where you keep python modules, and ensure your PYTHONPATH environment variable is set to point to that directory.
