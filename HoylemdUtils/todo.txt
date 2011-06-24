@@ -1,0 +1,7 @@
+Hoylemd utils todo
+
+ - Amalgamate number list module
+ - split validation and file io functions into separate modules
+ - Make BSearch return the first occurance of the target
+ - Make BSearch copy & sort lists before searching
+ - Make numbers module throw exceptions

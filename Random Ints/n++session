@@ -1,0 +1,11 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="2">
+            <File firstVisibleLine="67" xOffset="0" scrollWidth="768" startPos="1707" endPos="1707" selMode="0" lang="Python" encoding="-1" filename="H:\Code\Python\Random Ints\RandomInts.py" />
+            <File firstVisibleLine="27" xOffset="0" scrollWidth="520" startPos="1202" endPos="1202" selMode="0" lang="Python" encoding="-1" filename="H:\Code\Python\Binary Sort\BinarySort.py" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="488" startPos="390" endPos="390" selMode="0" lang="Normal Text" encoding="-1" filename="H:\Code\Python\Random Ints\todo.txt" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="776" startPos="642" endPos="642" selMode="0" lang="Normal Text" encoding="-1" filename="H:\Code\Python\Random Ints\readme.txt" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>
