@@ -13,12 +13,6 @@ Module breakdown:
 
 numberLists:
 	Functions:
-		binarySearch(num_list, target): Searches <num_list> for <target>. <num_list> must be a sorted list of integers, and target must be an integer. Returns the last occurance of <target> in a sorted list.
-		
-		merge(left, right): Accepts two sorted lists of numbers, and merges them such that the resultant list is sorted.
-		
-		mergeSort(list): Applies the mergeSort algorithm to <list>, a list of numbers and returns a new version of the list, in ascending order.
-		
 		generateInts(num_numbers, lower, upper): returns a list of <num_numbers> integers between <lower> and <upper> inclusive. If <num_numbers> is negative, or <lower> is greater than or equal to <upper>, a blank list will be returned.
 		
 general:
