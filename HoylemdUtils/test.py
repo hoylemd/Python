@@ -13,9 +13,7 @@ for arg in sys.argv:
 	if arg == "-v":
 		verbose = True
 
-# initialize global testing fields
-numTests = 0
-numFailures = 0
+# initialize global testing database
 testRecord = ["Test Name", "Test Module", "Explanation", "Test ID", "Result", "Feedback", "Raw Result"]
 testDatabase = [testRecord]
 
@@ -47,52 +45,123 @@ except IOError:
 	testRecord[4] = False
 	testRecord[5] = "IOError when trying to open file."
 	testRecord[6] = IOError
-
 testDatabase.append(testRecord)
 
 # test general.isNumeric
-# positive test
-# integers
-if general.isNumeric("-3"):
-	print "general.isNumeric(-3) functioning correctly"
+# negative integers (positive expected)
+# set up test record
+testRecord = ["general.isNumeric(negative integer) test", general, "Asserts that a negative integer input to the isNumeric function returns positive", 1, False, "None defined", None] 
+# conduct test
+testRecord[6] = general.isNumeric("-3")
+if testRecord[6]:
+	if verbose:
+		print "general.isNumeric(-3) functioning correctly"
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
 else:
-	print "general.isNumeric(-3) failed (False negative.)"
-if general.isNumeric("3"):
-	print "general.isNumeric(3) functioning correctly"
-else:
-	print "general.isNumeric(3) failed (False negative.)"
+	if verbose:
+		print "general.isNumeric(-3) failed (False negative.)"
+	testRecord[4] = False
+	testRecord[5] = "False negative on input of <-3>"
+testDatabase.append(testRecord)
 	
-# floats
-if general.isNumeric("-3.22"):
-	print "general.isNumeric(-3.22) functioning correctly"
+# positive integers (positive expected)
+# set up test record
+testRecord = ["general.isNumeric(positive integer) test", general, "Asserts that a positive integer input to the isNumeric function returns positive", 2, False, "None defined", None] 
+# conduct test
+testRecord[6] = general.isNumeric("3")
+if testRecord[6]:
+	if verbose:
+		print "general.isNumeric(3) functioning correctly"
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
 else:
-	print "general.isNumeric(-3.22) failed (False negative.)"
-if general.isNumeric("3.22"):
-	print "general.isNumeric(3.22) functioning correctly"
-else:
-	print "general.isNumeric(3.22) failed (False negative.)"
+	if verbose:
+		print "general.isNumeric(3) failed (False negative.)"
+	testRecord[4] = False
+	testRecord[5] = "False negative on input of <3>"
+testDatabase.append(testRecord)
 
-# negative test
-if not general.isNumeric("word"):
-	print "general.isNumeric(word) functioning correctly"
+# negative floats (positive expected)
+# set up test record
+testRecord = ["general.isNumeric(negative float) test", general, "Asserts that a negative float input to the isNumeric function returns positive", 3, False, "None defined", None] 
+# conduct test
+testRecord[6] = general.isNumeric("-3.22")
+if testRecord[6]:
+	if verbose:
+		print "general.isNumeric(-3.22) functioning correctly"
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
 else:
-	print "general.isNumeric(word) failed (False negative.)"
-
+	if verbose:
+		print "general.isNumeric(-3.22) failed (False negative.)"
+	testRecord[4] = False
+	testRecord[5] = "False negative on input of <-3.22>"
+testDatabase.append(testRecord)	
 	
-# set up the numbers
-numList = [34,12,-64,87,-23,3]
-sortedList = [-64,-23,3,12,34,87]
-
-# test numberList.mergeSort
-testSort = numberLists.mergeSort(numList)
-
-if testSort != sortedList:
-	print "numberList.mergeSort failed to sort correctly."
-	print "expected:"
-	print sortedList
-	print "result:"
-	print testSort
+# positive floats (positive expected)
+# set up test record
+testRecord = ["general.isNumeric(positive float) test", general, "Asserts that a positive float input to the isNumeric function returns positive", 4, False, "None defined", None] 
+# conduct test
+testRecord[6] = general.isNumeric("3.22")
+if testRecord[6]:
+	if verbose:
+		print "general.isNumeric(3.22) functioning correctly"
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
 else:
-	print "numberList.mergeSort functioning as expected."
+	if verbose:
+		print "general.isNumeric(3.22) failed (False negative.)"
+	testRecord[4] = False
+	testRecord[5] = "False negative on input of <3.22>"
+testDatabase.append(testRecord)	
+
+# string (negative expected)
+# set up test record
+testRecord = ["general.isNumeric(string) test", general, "Asserts that a string input to the isNumeric function returns negative", 5, False, "None defined", None] 
+# conduct test
+testRecord[6] = general.isNumeric("word")
+if not testRecord[6]:
+	if verbose:
+		print "general.isNumeric(word) functioning correctly"
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
+else:
+	if verbose:
+		print "general.isNumeric(word) failed (False positive.)"
+	testRecord[4] = False
+	testrecord[5] = "False positive on input of \"word\""
+testDatabase.append(testRecord)	
+
+#list
+#boolean
+#module
+	
+# generateInts tests
+
+# calculate stats
+numTests = len(testDatabase)
+numFailed = 0
+numSucceeded = 0
+
+# count success/failures
+for record in testDatabase:
+	if record[4]:
+		numSucceeded += 1
+	else:
+		numFailed += 1
+
+percentSuccess = (float(numSucceeded) / float(numTests)) * 100	
 	
 # Report results
+print "Total statistics:"
+print " " + str(numTests) + " conducted."
+print " " + str(numSucceeded) + " succeeded."
+print " " + str(numFailed) + " failed."
+print " " + str(percentSuccess) + "% of tests succeeded.\n"
+
+print "Failed tests:"
+for record in testDatabase:
+	if not record[4]:
+		print " " + record[0]
+		print "  :" + record[5]

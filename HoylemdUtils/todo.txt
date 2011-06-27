@@ -1,7 +1,9 @@
 Hoylemd utils todo
 
  - set up initial functionality - DONE
- - test initial functionality.
- - Make BSearch use list.index
- - Make numbers module throw exceptions
+ - test initial functionality. - DONE
+ - Refactor tests to be more informative
+ - Remove redundant functions from numberLists
+ - Write tests for generateInts()
  - Make isNumeric use type()
+ - set up additional type tests for isNumeric
