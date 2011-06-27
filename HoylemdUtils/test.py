@@ -133,11 +133,66 @@ else:
 	testrecord[5] = "False positive on input of \"word\""
 testDatabase.append(testRecord)	
 
-#list
-#boolean
-#module
+# list
+# boolean
+# module
 	
 # generateInts tests
+# test general type functionality
+# set up test record
+testRecord = ["numberLists.generateInts return type test", numberLists, "Asserts that numberLists returns a list", 6, False, "None defined", None] 
+# conduct test
+testRecord[6] = numberLists.generateInts(5,0,10)
+if type(testRecord[6]) == type(list()):
+	if verbose:
+		print "numberLists.generateInts(5,0,10) return type functioning correctly."
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
+else:
+	if verbose:
+		print "numberLists.generateInts did not return a list"
+	testRecord[4] = False
+	testRecord[5] = "Did not return a list object."
+testDatabase.append(testRecord)
+		
+# following tests are predicated on previous test's success
+if (testRecord[4]):
+	# test upper boundaries
+	# set up test record
+	testRecord = ["numberLists.generateInts upper boundarytest", numberLists, "Asserts that numberLists' upper boundary parameter is applied correctly", 7, False, "None defined", None]
+	# conduct test
+	testRecord[6] = numberLists.generateInts(10,0,3)
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
+	for x in testRecord[6]:
+		if x > 3:
+			if verbose:
+				print "numberLists.generateInts generated a number greater than the specified upper bound."
+			testRecord[4] = False
+			testRecord[5] = "Returned a number greater than the upper boundary."
+			break
+	testDatabase.append(testRecord)
+			
+	# test lower boundaries
+	# set up test record
+	testRecord = ["numberLists.generateInts upper boundarytest", numberLists, "Asserts that numberLists' upper boundary parameter is applied correctly", 8, False, "None defined", None]
+	# conduct test
+	testRecord[6] = numberLists.generateInts(10,0,3)
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
+	for x in testRecord[6]:
+		if x < 0:
+			if verbose:
+				print "numberLists.generateInts generated a number less than the specified lower bound."
+			testRecord[4] = False
+			testRecord[5] = "Returned a number less than the lower boundary."
+			break
+	testDatabase.append(testRecord)
+			
+	# test invalid boundaries
+	# test list length
+	# test 0 list length
+	# test negative list length
 
 # calculate stats
 numTests = len(testDatabase)

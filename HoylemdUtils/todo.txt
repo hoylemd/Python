@@ -3,7 +3,7 @@ Hoylemd utils todo
  - set up initial functionality - DONE
  - test initial functionality. - DONE
  - Refactor tests to be more informative - DONE
- - Remove redundant functions from numberLists
+ - Remove redundant functions from numberLists - DONE
  - Write tests for generateInts()
  - Make isNumeric use type()
  - set up additional type tests for isNumeric
