@@ -9,20 +9,15 @@ import sys
 verbose = False
 
 # parse command-line args
-arg = sys.argv.pop()
-while arg:
+for arg in sys.argv:
 	if arg == "-v":
 		verbose = True
-	try:
-		sys.argv.pop()
-	except IndexError:
-		arg = None
 
 # initialize global testing fields
 numTests = 0
 numFailures = 0
 testRecord = ["Test Name", "Test Module", "Explanation", "Test ID", "Result", "Feedback", "Raw Result"]
-feedbackDatabase = [testRecord]
+testDatabase = [testRecord]
 
 # test general.readFile
 # set up test record
@@ -52,6 +47,8 @@ except IOError:
 	testRecord[4] = False
 	testRecord[5] = "IOError when trying to open file."
 	testRecord[6] = IOError
+
+testDatabase.append(testRecord)
 
 # test general.isNumeric
 # positive test
@@ -97,3 +94,5 @@ if testSort != sortedList:
 	print testSort
 else:
 	print "numberList.mergeSort functioning as expected."
+	
+# Report results
