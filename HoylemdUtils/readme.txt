@@ -29,3 +29,6 @@ general:
 		
 Installation Instructions:
 	Copy the hutils folder to a directory where you keep python modules, and ensure your PYTHONPATH environment variable is set to point to that directory.
+	
+Testing Instructions:
+	run test.py. add the -v flag for additional information
