@@ -2,6 +2,6 @@ Hoylemd utils todo
 
  - set up initial functionality - DONE
  - test initial functionality.
- - Make BSearch return the first occurance of the target
- - Make BSearch copy & sort lists before searching
+ - Make BSearch use list.index
  - Make numbers module throw exceptions
+ - Make isNumeric use type()
