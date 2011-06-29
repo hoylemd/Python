@@ -22,7 +22,14 @@ general:
 		readFile(file_path): Returns the contents of the file describes by <file_path>. Throws IOErrors.
 		
 Installation Instructions:
-	Copy the hutils folder to a directory where you keep python modules, and ensure your PYTHONPATH environment variable is set to point to that directory.
+	Windows:
+		$install.bat
+	
+	Linux::
+		$sudo install.sh
+		
+	This will install the library to your C:\Python27\Lib\ folder for windows, or /lib/ for linux.  The sudo may or may not be neccesary.  Make sure to add these paths to your PYTHONPATH environment variables.
+	If you would rather install the library elsewhere, just copy the hutils folder to the preferred location and make sure PYTHONPATH still points to that location.
 	
 Testing Instructions:
 	run test.py. add the -v flag for additional information
