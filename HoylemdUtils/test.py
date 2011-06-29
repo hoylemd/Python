@@ -14,8 +14,8 @@ for arg in sys.argv:
 		verbose = True
 
 # initialize global testing database
-testRecord = ["Test Name", "Test Module", "Explanation", "Test ID", "Result", "Feedback", "Raw Result"]
-testDatabase = [testRecord]
+testHeaders = ["Test Name", "Test Module", "Explanation", "Test ID", "Result", "Feedback", "Raw Result"]
+testDatabase = []
 
 # test general.readFile
 # set up test record
@@ -140,7 +140,7 @@ testDatabase.append(testRecord)
 # generateInts tests
 # test general type functionality
 # set up test record
-testRecord = ["numberLists.generateInts return type test", numberLists, "Asserts that numberLists returns a list", 6, False, "None defined", None] 
+testRecord = ["numberLists.generateInts return type test", numberLists, "Asserts that generateInts returns a list", 6, False, "None defined", None] 
 # conduct test
 testRecord[6] = numberLists.generateInts(5,0,10)
 if type(testRecord[6]) == type(list()):
@@ -159,7 +159,7 @@ testDatabase.append(testRecord)
 if (testRecord[4]):
 	# test upper boundaries
 	# set up test record
-	testRecord = ["numberLists.generateInts upper boundarytest", numberLists, "Asserts that numberLists' upper boundary parameter is applied correctly", 7, False, "None defined", None]
+	testRecord = ["numberLists.generateInts upper boundary test", numberLists, "Asserts that generateInts' upper boundary parameter is applied correctly", 7, False, "None defined", None]
 	# conduct test
 	testRecord[6] = numberLists.generateInts(10,0,3)
 	testRecord[4] = True
@@ -171,11 +171,14 @@ if (testRecord[4]):
 			testRecord[4] = False
 			testRecord[5] = "Returned a number greater than the upper boundary."
 			break
+	if testRecord[4] == True:
+		if verbose:
+			print "numberLists.generateInts(10,0,3)upper boundary functioning correctly."
 	testDatabase.append(testRecord)
 			
 	# test lower boundaries
 	# set up test record
-	testRecord = ["numberLists.generateInts upper boundarytest", numberLists, "Asserts that numberLists' upper boundary parameter is applied correctly", 8, False, "None defined", None]
+	testRecord = ["numberLists.generateInts lower boundary test", numberLists, "Asserts that generateInts' lower boundary parameter is applied correctly", 8, False, "None defined", None]
 	# conduct test
 	testRecord[6] = numberLists.generateInts(10,0,3)
 	testRecord[4] = True
@@ -187,9 +190,30 @@ if (testRecord[4]):
 			testRecord[4] = False
 			testRecord[5] = "Returned a number less than the lower boundary."
 			break
+	if testRecord[4] == True:
+		if verbose:
+			print "numberLists.generateInts(10,0,3) lower bound functioning correctly."
 	testDatabase.append(testRecord)
 			
-	# test invalid boundaries
+	# test backwards boundaries
+	# set up test record
+	testRecord = ["numberLists.generateInts invalid boundary test", numberLists, "Asserts that generateInts handles invalid boundaries correctly", 9, False, "None defined", None]
+	# conduct test		
+	testRecord[4] = True
+	testRecord[5] = "Working as intended."
+	testRecord[6] = numberLists.generateInts(10,10,3)
+	for x in testRecord[6]:
+		if x < 3 or x > 10:
+			if verbose:
+				print "numberLists.generateInts generated a number outside the specified boundaries when they are entered backwards."
+			testRecord[4] = False
+			testRecord[5] = "Returned a number outside the boundaries"
+			break
+	if testRecord[4] == True:
+		if verbose:
+			print "numberLists.generateInts(10,10,3) with backwards boundary arguments functioning correctly."
+	testDatabase.append(testRecord)
+	
 	# test list length
 	# test 0 list length
 	# test negative list length
@@ -219,4 +243,5 @@ print "Failed tests:"
 for record in testDatabase:
 	if not record[4]:
 		print " " + record[0]
-		print "  :" + record[5]
+		print "   Message: " + record[5]
+		print "   Raw Result: " + str(record[6])

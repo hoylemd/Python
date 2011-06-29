@@ -13,7 +13,7 @@ Module breakdown:
 
 numberLists:
 	Functions:
-		generateInts(num_numbers, lower, upper): returns a list of <num_numbers> integers between <lower> and <upper> inclusive. If <num_numbers> is negative, or <lower> is greater than or equal to <upper>, a blank list will be returned.
+		generateInts(num_numbers, lower, upper): returns a list of <num_numbers> integers between <lower> and <upper> inclusive. If <num_numbers> is negative a blank list will be returned. If <upper> is less than <lower>, a list will be generated with the boundaries switched to reflect the probable intention of the call, so the actual order of <lower> and <upper> isn't impoertant as long as they come after <num_numbers>
 		
 general:
 	Functions:
