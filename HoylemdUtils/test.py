@@ -215,8 +215,55 @@ if (testRecord[4]):
 	testDatabase.append(testRecord)
 	
 	# test list length
+	# set up test record
+	testRecord = ["numberLists.generateInts list length test", numberLists, "Asserts that generateInts' list length parameter is applied correctly", 10, False, "None defined", None]
+	# conduct test
+	testRecord[6] = numberLists.generateInts(10,0,3)
+	if len(testRecord[6]) != 10:
+		if verbose:
+			print "numberLists.generateInts generated a list of the wrong length"
+		testRecord[4] = False
+		testRecord[5] = "Returned a list of incorrect length (" + str(len(testRecord[6])) + "), expected 10"
+	else:
+		if verbose:
+			print "numberLists.generateInts(10,0,3) list length functioning correctly."
+		testRecord[4] = True
+		testRecord[5] = "Working as intended."
+	testDatabase.append(testRecord)
+	
 	# test 0 list length
+	# set up test record
+	testRecord = ["numberLists.generateInts zero list length test", numberLists, "Asserts that generateInts' list length parameter deals with a value of 0 correctly", 11, False, "None defined", None]
+	# conduct test
+	testRecord[6] = numberLists.generateInts(0,0,3)
+	if len(testRecord[6]) != 0:
+		if verbose:
+			print "numberLists.generateInts generated a list when length was specified to be 0."
+		testRecord[4] = False
+		testRecord[5] = "Returned a list of nonzero length"
+	else:
+		if verbose:
+			print "numberLists.generateInts(0,0,3) list length of 0 functioning correctly."
+		testRecord[4] = True
+		testRecord[5] = "Working as intended."
+	testDatabase.append(testRecord)
+	
 	# test negative list length
+	# set up test record
+	testRecord = ["numberLists.generateInts negative list length test", numberLists, "Asserts that generateInts' list length parameter deals with a negative value correctly", 12, False, "None defined", None]
+	# conduct test
+	testRecord[6] = numberLists.generateInts(-5,0,3)
+	if len(testRecord[6]) != 0:
+		if verbose:
+			print "numberLists.generateInts generated a list when length was specified as negative."
+		testRecord[4] = False
+		testRecord[5] = "Returned a list of nonzero length"
+	else:
+		if verbose:
+			print "numberLists.generateInts(-5,0,3) negative list length functioning correctly."
+		testRecord[4] = True
+		testRecord[5] = "Working as intended."
+	testDatabase.append(testRecord)
 
 # calculate stats
 numTests = len(testDatabase)
