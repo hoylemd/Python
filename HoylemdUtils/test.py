@@ -3,6 +3,7 @@
 # import the modules
 from hutils import general
 from hutils import numberLists
+from hutils import colours
 import sys
 
 # initialize testing parameters
