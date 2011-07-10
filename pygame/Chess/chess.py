@@ -8,17 +8,11 @@
 import pygame 
 from hutils import colours
 import ChessGraphics
-
-# colour switcher
-def switchColour(col):
-	if col == colours.black:
-		return colours.white;
-	elif col == colours.white:
-		return colours.black;
 		
 # shorthand for blitting a sprite
 def drawSprite(theSprite):
-	screen.blit(theSprite.image, theSprite.rect)
+	if theSprite != None:
+		screen.blit(theSprite.image, theSprite.rect)
 
 # initialize pygame
 pygame.init() 
@@ -32,15 +26,10 @@ pygame.display.set_caption("Chess")
 clock=pygame.time.Clock()
 
 # generate the game board
-board = []
-colour = colours.white
-for x in range(8):
-	line = []
-	for y in range(8):
-		line.append(ChessGraphics.Tile(colour, [x,y]))
-		colour = switchColour(colour)
-	colour = switchColour(colour)
-	board.append(line)
+board = ChessGraphics.generateBoard()
+	
+# populate the game board
+pieces = ChessGraphics.populateBoard()
 
 #Loop until the user clicks the close button.
 quit = False
@@ -66,6 +55,11 @@ while quit == False:
 		for tile in line:
 			drawSprite(tile)
 	
+	# draw the pieces
+	for line in pieces:
+		for piece in line:
+			drawSprite(piece)
+			
 	# update the screen.
 	pygame.display.flip()
 
