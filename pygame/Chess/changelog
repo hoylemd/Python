@@ -1,0 +1,8 @@
+/pygame/chess
+ - added initial project files
+ - added task description & iteration plan
+ - set up main window
+ - made tile and piece classes
+ - made basic graphics
+ - added in board generation and displaying
+ - centered board in window

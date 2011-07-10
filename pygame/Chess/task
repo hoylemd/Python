@@ -1,0 +1,17 @@
+make chess!
+
+1st iteration:
+ - display game board
+ - display pieces
+
+2nd iteration
+ - highlight/select pieces by clicking on them
+ - move Pieces arbitratily
+ - prevent collision
+ - Make pieces follow simple movement rules
+ 
+3rd iteration
+ - implement piece capturing
+ - implement complex movement (pawn)
+ - implement complex movement (knight)
+ - implement piece blocking
